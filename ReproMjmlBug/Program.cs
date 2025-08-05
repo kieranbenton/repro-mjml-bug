@@ -10,7 +10,7 @@ await RenderAsync(one);
 string two = "<mjml>\n<mj-head>\n<mj-title>Hello World Example</mj-title>\n</mj-head>\n<mj-body>\n<mj-section>\n<mj-column>\n<mj-text>\nHello World! <span data-content-type=\"textunit\" data-content-key=\"test_key\" data-content-channelid=\"chanl_00000000-0000-0000-0000-000000000002\" data-content-language=\"en-GB\" data-content-is-draft=\"false\" data-content-limit=\"0\" data-content-is-inline=\"true\"></span> [[TRANSLATED!: 'test_key' in 'en-GB']]\n</mj-text>\n</mj-column>\n</mj-section>\n</mj-body>\n</mjml><mjml>\n<mj-head>\n<mj-title>Hello World Example</mj-title>\n</mj-head>\n<mj-body>\n<mj-section>\n<mj-column>\n<mj-text>\nHello World!  [[TRANSLATED!: 'test_key' in 'en-GB']]\n</mj-text>\n</mj-column>\n</mj-section>\n</mj-body>\n</mjml>";
 await RenderAsync(two);
 
-// bad - throws
+// bad - fails
 string three = "<mjml>\n<mj-head>\n<mj-title>Hello World Example</mj-title>\n</mj-head>\n<mj-body>\n<mj-section>\n<mj-column>\n<mj-text>\nHello World! <span data-content-type=\"textunit\" data-content-key=\"test_key\" data-content-channelid=\"chanl_00000000-0000-0000-0000-000000000002\" data-content-language=\"en-GB\" data-content-is-draft=\"false\" data-content-limit=\"0\" data-content-is-inline=\"true\"></span> [[TRANSLATED!: 'test_key' in 'en-GB']]\n</mj-text>\n</mj-column>\n</mj-section>\n</mj-body>\n</mjml>\nthis is some new content";
 await RenderAsync(three);
 
