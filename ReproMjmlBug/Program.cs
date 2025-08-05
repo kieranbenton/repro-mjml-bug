@@ -17,7 +17,7 @@ await RenderAsync(three);
 // BAD - this is the one that shouldn't have "data-content-key" in it but it does
 string four = "<mjml>\n<mj-head>\n<mj-title>Hello World Example</mj-title>\n</mj-head>\n<mj-body>\n<mj-section>\n<mj-column>\n<mj-text>\nHello World!  [[TRANSLATED!: 'test_key' in 'en-GB']]\n</mj-text>\n</mj-column>\n</mj-section>\n</mj-body>\n</mjml>\n<mj-text font-family=\"Helvetica\" color=\"#F45E43\"><p>this is some new content</p></mj-text>";
 string fourResult = await RenderAsync(four);
-if (fourResult.Contains("data-content-key"))
+if (!four.Contains("data-content-key") && fourResult.Contains("data-content-key"))
 {
     Console.WriteLine("THIS SHOULD BE IMPOSSIBLE - 'data-content-key' should not be in the output HTML");
 }
